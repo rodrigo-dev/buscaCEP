@@ -9,8 +9,22 @@
   <h1>Consultar aqui seu CEP</h1>
   <br>
   <div class="InputPesquisa">
-    <input type="text" name="" id="" value="" (input)="value($event.target.value)">
+    <input type="number" name="" id="" placeholder="Digíte aqui seu CEP" (input)="value($event.target.value)">
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click) = "Search()">Search</button>
   </div>
+  <h4 class="titleResults">Informações da Residência:</h4>
+<div class="DivResults" *ngIf ="endereco.cep !==''">
+<span>CEP: {{endereco.cep}}</span><br>
+<span>Logradouro: {{endereco.logradouro}}</span><br>
+<span >Complemento: {{endereco.complemento}}</span><br>
+<span>Bairro: {{endereco.bairro}}</span><br>
+<span>Localidade: {{endereco.localidade}}</span><br>
+<span>UF: {{endereco.uf}}</span><br>
+<span>Ibge: {{endereco.ibge}}</span><br>
+<span>Gia: {{endereco.gia}}</span><br>
+<span>DDD: {{endereco.ddd}}</span><br>
+<span>Siafi: {{endereco.siafi}}</span><br>
+</div>
+<h2 class="congrats">{{textCongrats}}</h2>
 </body>
 </html>
