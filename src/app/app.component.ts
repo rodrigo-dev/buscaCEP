@@ -7,25 +7,14 @@ import { ConsumoApiService} from './Core/Services/consumoapi.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  valorInput: "";
+  valorInput: any;
   textCongrats: any;
-   endereco: {
-    cep: "",
-    logradouro: "",
-    complemento: "",
-    bairro: "",
-    localidade: "",
-    uf: "",
-    ibge: "",
-    gia: "",
-    ddd: "",
-    siafi: ""
-  }
+   endereco: any = {};
 
 
 constructor(private Servico : ConsumoApiService){}
 
- async value(event : any){
+  value(event : number){
     this.valorInput = event
     
   }
@@ -33,7 +22,6 @@ constructor(private Servico : ConsumoApiService){}
     console.log('to aqui')
       this.Servico.getCEP(this.valorInput).subscribe((response : any) =>{
         this.endereco = response
-        this.textCongrats = "Obrigado por pesquisar aqui."
       })
     }
   validar(){
